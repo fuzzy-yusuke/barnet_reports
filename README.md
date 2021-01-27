@@ -2,7 +2,7 @@
 ## Docker + Laravel + Nginx + MySQL 環境構築
 構築の流れ
 - 以下Dockerイメージ作成
-  - Nginx
+  - nginx
   - php-fpm
   - MySQL
 - laravelインストール
