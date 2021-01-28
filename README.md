@@ -14,6 +14,13 @@
 
 ※laravelフォルダに存在する「.gitkeep」を削除する
 
+・「docker-compose.yml 」の「mysql」の「environment:」の以下の項目を任意の名前に変更する。
+※「MYSQL_PASSWORD」と「MYSQL_ROOT_PASSWORD」は同じものにする。
+  MYSQL_DATABASE
+  MYSQL_USER
+  MYSQL_PASSWORD
+  MYSQL_ROOT_PASSWORD
+
 ・コマンドラインツール（PowerShell,CMD, Terminal）にて
 「docker-compose.yml 」が存在するフォルダへ移動し、以下コマンド実行
 ```
@@ -37,6 +44,7 @@ docker-compose exec php-fpm /bin/bash
 composer create-project laravel/laravel=7.*.* --prefer-dist .
 ```
 laravelフォルダ直下の「.env」に以下の情報を記述
+この時、DB_DATABASE、DB_USERNAME、DB_PASSWORDを任意のものに設定する
 ```
 APP_NAME=Laravel
 APP_ENV=local
@@ -46,9 +54,9 @@ APP_URL=http://localhost
 DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_PORT=3306
-DB_DATABASE=laravel
-DB_USERNAME=ktpj
-DB_PASSWORD=ktpj2305
+DB_DATABASE=任意
+DB_USERNAME=任意
+DB_PASSWORD=任意
 BROADCAST_DRIVER=log
 CACHE_DRIVER=file
 QUEUE_CONNECTION=sync
