@@ -31,10 +31,31 @@ docker-compose build --no-cache
 # dockerコンテナ起動
 docker-compose up -d
 
+#MySQLコンテナにログイン
+docker-compose exec mysql /bin/bash
+```
+MySQLのログイン認証の変更
+MySQL8.0から、PHPでのログイン認証が新しくなり、
+古い認証に変更する。
+```
+# mysqlログイン
+mysql -u root -p
+
+#パスワードを入力
+
+# MySQLのユーザ一覧を確認
+SELECT user, host, plugin FROM mysql.user;
+
+# pluginの認証を「caching_sha2_password」から「mysql_native_password」に変更
+ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'パスワード';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'パスワード';
+ALTER USER 'ユーザー名'@'%' IDENTIFIED WITH mysql_native_password BY 'パスワード';
+```
+#php-fpmにlaravelをインストール
+```
 # php-fpmコンテナにログイン
 docker-compose exec php-fpm /bin/bash
 ```
-
 ### MySQLコンテナ起動に失敗する場合（Win）
 一旦サービスを止めてみる
 `net stop mysql80`
@@ -108,6 +129,8 @@ php artisan ui bootstrap --auth
 apt update
 apt install nodejs npm
 npm install
+chmod -R 777 ./storage/ 
+権限を設定する。
 npm run dev
 ```
 ■WebブラウザにてWelcomeページ確認
