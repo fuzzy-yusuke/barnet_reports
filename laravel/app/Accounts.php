@@ -5,9 +5,13 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+// 論理削除有効化
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User extends Authenticatable
+class Accounts extends Authenticatable
 {
+    // 論理削除有効化 ： Eloquentのdestroy,delete methodをした際に論理削除されるようになります。
+    use SoftDeletes;
     use Notifiable;
 
     /**
@@ -16,7 +20,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'code',
+        'name',
+        'role_name',
+        'mail', 'password',
     ];
 
     /**
@@ -24,9 +31,9 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $hidden = [
+    /*protected $hidden = [
         'password', 'remember_token',
-    ];
+    ];*/
 
     /**
      * The attributes that should be cast to native types.
@@ -36,4 +43,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // timestampの自動更新を利用する
+    public $timestamps = true;
+
+    // ==============================
+    // リレーション定義
+    // ==============================
 }
