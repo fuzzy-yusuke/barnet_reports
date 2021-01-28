@@ -17,10 +17,10 @@
 ・「docker-compose.yml 」の「mysql」の「environment:」の以下の項目を任意の名前に変更する。
 
 ※「MYSQL_PASSWORD」と「MYSQL_ROOT_PASSWORD」は同じものにする。
-  MYSQL_DATABASE
-  MYSQL_USER
-  MYSQL_PASSWORD
-  MYSQL_ROOT_PASSWORD
+- MYSQL_DATABASE
+- MYSQL_USER
+- MYSQL_PASSWORD
+- MYSQL_ROOT_PASSWORD
 
 ・コマンドラインツール（PowerShell,CMD, Terminal）にて
 「docker-compose.yml 」が存在するフォルダへ移動し、以下コマンド実行
