@@ -23,7 +23,8 @@ class Accounts extends Authenticatable
         'code',
         'name',
         'role_name',
-        'mail', 'password',
+        'mail',
+        'password',
     ];
 
     /**
@@ -41,7 +42,7 @@ class Accounts extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'email_verified_date' => 'datetime',
     ];
 
     // timestampの自動更新を利用する

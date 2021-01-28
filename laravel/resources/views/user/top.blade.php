@@ -5,7 +5,7 @@
         <div class="col">
             <div class="mb-3">メニュー</div>
             <ul>
-                <li><a href="{{ url('/user/account/index') }}">マイアカウント</a></li>
+                <li><a href='{{ route("user.accountIndex"}}'>マイアカウント</a></li>
                 <li><a href="{{ url('/user/enquete/list') }}">アンケート回答</a></li>
             </ul>
         </div>
