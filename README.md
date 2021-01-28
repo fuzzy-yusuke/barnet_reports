@@ -15,6 +15,7 @@
 ※laravelフォルダに存在する「.gitkeep」を削除する
 
 ・「docker-compose.yml 」の「mysql」の「environment:」の以下の項目を任意の名前に変更する。
+
 ※「MYSQL_PASSWORD」と「MYSQL_ROOT_PASSWORD」は同じものにする。
   MYSQL_DATABASE
   MYSQL_USER
