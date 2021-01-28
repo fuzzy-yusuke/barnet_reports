@@ -45,6 +45,7 @@ docker-compose exec php-fpm /bin/bash
 composer create-project laravel/laravel=7.*.* --prefer-dist .
 ```
 laravelフォルダ直下の「.env」に以下の情報を記述
+
 この時、DB_DATABASE、DB_USERNAME、DB_PASSWORDを任意のものに設定する
 ```
 APP_NAME=Laravel

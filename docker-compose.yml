@@ -43,7 +43,7 @@ services:
       - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     environment:
       - MYSQL_DATABASE=barnet_reports
-      - MYSQL_USER=gfdoglh
+      - MYSQL_USER=barnet
       - MYSQL_PASSWORD=yht7fvw5no
       - MYSQL_ROOT_PASSWORD=yht7fvw5no
       - TZ=Asia/Tokyo
