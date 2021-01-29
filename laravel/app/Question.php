@@ -21,7 +21,8 @@ class Question extends Model
         'item_content3',
         'item_content4',
         'item_content5',
-        'content'
+        'content',
+        'week_code'
     ];
 
     // timestampの自動更新を利用する

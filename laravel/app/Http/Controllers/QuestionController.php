@@ -10,14 +10,14 @@ class QuestionController extends Controller
     public function questionList()
     {
         // TODO: where 2 は仮 question_codeが同一の値のレコードを取得
-        $items = \App\Question::where('code', 2)->get();
-        return view('user.enquete.list')->with('items', $items);
+        $enquetes = \App\Question::where('week_code', 2)->get();
+        return view('user.enquete.list')->with('enquetes', $enquetes);
     }
 
-    public function questionIndex()
+    public function questionIndex($week)
     {
         // TODO: １回分のアンケート（codeが同一値）whereは仮
-        $items = \App\Question::where('code', 2)->get();
+        $items = \App\Question::where('week_code', $week)->get();
 
         $itemsArray = $items->toArray();
 
