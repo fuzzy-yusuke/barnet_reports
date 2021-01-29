@@ -3,8 +3,8 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <a class="btn btn-secondary mb-3" href="{{ url('/user/top') }}">戻る</a>
-            <div class="mb-3">アンケート回答</div>
+            <a class="btn btn-secondary mb-3" href="{{ route('user.top') }}">戻る</a>
+            <h2 class="mb-3">アンケート一覧</h2>
             <table class="table table-striped">
                 <tr>
                     <th scope="col">更新日</th>
