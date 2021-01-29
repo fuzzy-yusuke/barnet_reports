@@ -11,7 +11,7 @@ class QuestionController extends Controller
     {
         // TODO: where 2 は仮 question_codeが同一の値のレコードを取得
         $items = \App\Question::where('code', 2)->get();
-        return view('/user/enquete/list')->with('items', $items);
+        return view('user.enquete.list')->with('items', $items);
     }
 
     public function questionIndex()
@@ -25,7 +25,7 @@ class QuestionController extends Controller
         // $itemsArray = DB::table('questions')->where('code', 2)->get();
         // dd($itemsArray);
 
-        return view('/user/enquete/index')->with('items', $items)->with('itemsArray', $itemsArray);
+        return view('user.enquete.index')->with('items', $items)->with('itemsArray', $itemsArray);
 
 
     }
