@@ -13,7 +13,7 @@
                             <div><input id="name" type="text" name="name" class="form-control" value="{{ $user->name }}"></div>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
+                            <label for="email">メールアドレス</label>
                             <div><input id="email" type="text" name="email" class="form-control" value="{{ $user->email }}"></div>
                         </div>
                         <a class="btn btn-secondary" href="/user/account/index">戻る</a>

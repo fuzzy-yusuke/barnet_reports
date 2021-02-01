@@ -31,6 +31,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/user/enquete/index', 'QuestionController@answerIndex')->name('user.answerIndex'); //アンケート回答画面
     Route::get('/user/enquete/confirm', 'QuestionController@answerConfirm')->name('user.answerConfirm');//アンケート回答確認画面
     Route::get('/user/enquete/complete', 'QuestionController@answerComplete')->name('user.answerComplete');//アンケート回答完了画面
+    Route::get('/user/enquete/read', 'QuestionController@answerRead')->name('user.answerRead');//アンケート回答閲覧画面
+    
     
     // 管理者
     Route::get('/admin/top', 'AdminController@top'); //管理者TOP画面

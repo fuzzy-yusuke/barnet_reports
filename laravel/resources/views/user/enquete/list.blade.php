@@ -13,7 +13,7 @@
                 @for ($i = 0; $i<=20; $i++)
                 <tr>
                     <td>2020/12/01</td>
-                    <td><a href="{{ url('/user/enquete/index') }}">アンケート①</a></td>
+                    <td><a href="{{ url('/user/enquete/read') }}">アンケート①</a></td>
                 </tr>
                 @endfor
             </table>

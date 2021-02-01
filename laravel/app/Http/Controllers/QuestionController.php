@@ -46,4 +46,19 @@ class QuestionController extends Controller
     {
         return view('user.enquete.complete');
     }
+    public function answerRead()
+    {
+        // TODO: １回分のアンケート（codeが同一値）whereは仮
+        $items = \App\Question::where('code', 2)->get();
+
+        $itemsArray = $items->toArray();
+
+        // use Illuminate\Support\Facades\DB;
+        // $itemsArray = DB::table('questions')->where('question_group', 2)->get();
+        // dd($itemsArray);
+
+        return view('user.enquete.read')->with('items', $items)->with('itemsArray', $itemsArray);
+
+    }
 }
+    
