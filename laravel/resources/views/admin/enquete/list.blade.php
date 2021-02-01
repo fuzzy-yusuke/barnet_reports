@@ -3,20 +3,34 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
-            <div class="mb-3">アンケート回答</div>
+            <h2 class="mb-3">アンケート一覧</h2>
+            <div class="d-flex bd-highlight mb-3">
+                <div>
+                    <button type="button" onclick="history.back()" class="btn btn-secondary">戻る</button>
+                </div>
+                <div class="ml-auto p-2 bd-highlight">
+                    <a class="btn btn-success" href="{{ route('admin.questionCreate') }}">新規作成</a>
+                </div>
+            </div>
             <table class="table table-striped">
                 <tr>
                     <th scope="col">更新日</th>
                     <th scope="col">タイトル</th>
+                    <th scope="col" class="text-center">操作</th>
                 </tr>
                 @for ($i = 0; $i<=20; $i++)
                 <tr>
                     <td>2020/12/01</td>
                     <td><a href="{{ url('/user/enquete/index') }}">アンケート①</a></td>
+                    <td class="text-center">
+                        <div class="btn-group btn-group" role="group" aria-label="button group">
+                            <a class="btn btn-success" href="{{ action('QuestionController@questionEdit') }}">編集</a>
+                            <a href="" type="button" class="btn btn-danger ml-1">削除</a>
+                        </div>
+                    </td>
                 </tr>
                 @endfor
             </table>
-            <button type="button" onclick="history.back()" class="btn btn-secondary">戻る</button>
         </div>
         <div class="col">
             <div id="example"></div>

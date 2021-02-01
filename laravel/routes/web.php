@@ -27,7 +27,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/user/account/index', 'UserController@accountIndex')->name('user.accountIndex'); //アカウント情報画面
     Route::get('/user/account/edit', 'UserController@accountEdit')->name('user.accountEdit'); //アカウント情報編集画面
     Route::post('/user/account/edit', 'UserController@accountUpdate')->name('user.accountUpdate');
-    Route::get('/user/enquete/list', 'QuestionController@questionList')->name('user.questionList'); //アンケート回答一覧
+    Route::get('/user/enquete/list', 'QuestionController@answerList')->name('user.answerList'); //アンケート回答一覧
     Route::get('/user/enquete/index', 'QuestionController@answerIndex')->name('user.answerIndex'); //アンケート回答画面
     Route::get('/user/enquete/confirm', 'QuestionController@answerConfirm')->name('user.answerConfirm');//アンケート回答確認画面
     Route::get('/user/enquete/complete', 'QuestionController@answerComplete')->name('user.answerComplete');//アンケート回答完了画面
@@ -42,6 +42,13 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::get('/admin/account/edit/{id}', 'AdminController@accountEdit'); //アカウント編集
     Route::post('/admin/account/edit/{id}', 'AdminController@accountUpdate'); //アカウント編集
+    Route::get('/admin/enquete/list', 'QuestionController@questionList')->name('admin.questionList'); //アンケート作成一覧
+    Route::get('/admin/enquete/create', 'QuestionController@questionCreate')->name('admin.questionCreate'); //アンケート作成画面
+    Route::get('/admin/enquete/confirm', 'QuestionController@questionConfirm')->name('admin.questionConfirm');//アンケート作成確認画面
+    Route::get('/admin/enquete/complete', 'QuestionController@questionComplete')->name('admin.questionComplete');//アンケート作成完了画面
+    Route::get('/admin/enquete/read', 'QuestionController@questionRead')->name('admin.questionRead');//アンケート作成閲覧画面
+    Route::get('/admin/enquete/edit', 'QuestionController@questionEdit')->name('admin.questionEdit');//アンケート作成閲覧画面
+    Route::get('/admin/result/list', 'QuestionController@resultList')->name('admin.resultList');//アンケート作成閲覧画面
 
 
 

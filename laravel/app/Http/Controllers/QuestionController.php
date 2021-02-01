@@ -6,9 +6,8 @@ use Illuminate\Http\Request;
 
 class QuestionController extends Controller
 {
-    //アンケート
-    public function questionList()
-    {
+    public function answerList()
+    {   //一般ユーザー側
         // TODO: where 2 は仮 question_codeが同一の値のレコードを取得
         $items = \App\Question::where('code', 2)->get();
         return view('user.enquete.list')->with('items', $items);
@@ -59,6 +58,40 @@ class QuestionController extends Controller
 
         return view('user.enquete.read')->with('items', $items)->with('itemsArray', $itemsArray);
 
+    }
+    //管理者側
+    public function questionList()
+    {
+        // TODO: where 2 は仮 question_codeが同一の値のレコードを取得
+        $items = \App\Question::where('code', 2)->get();
+        return view('admin.enquete.list')->with('items', $items);
+    }
+
+    public function questionCreate()
+    {
+        return view('admin.enquete.create');
+    }
+    public function questionConfirm(Request $request)
+    {
+        //質問
+        $question = $request->content;
+        //回答
+        $answer = $request->answer;
+        //確認画面に表示する値を格納
+        $confirm_data = [
+            'content' => $question,
+            'answer' => $answer
+        ];
+        return view('admin.enquete.confirm')->with('confirm_data',$confirm_data);
+    }
+
+    public function questionComplete()
+    {
+        return view('admin.enquete.complete');
+    }
+    public function questionEdit()
+    {
+        return view('admin.enquete.edit');
     }
 }
     

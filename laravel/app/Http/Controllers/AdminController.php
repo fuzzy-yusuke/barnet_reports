@@ -11,18 +11,18 @@ class AdminController extends Controller
 {
     public function top()
     {
-        return view('/admin/top');
+        return view('admin.top');
     }
 
     public function accountList()
     {
         $accountLists = \App\User::orderBy('id', 'desc')->paginate(10);
-        return view('/admin/account/list')->with('accountLists', $accountLists);
+        return view('admin.account.list')->with('accountLists', $accountLists);
     }
 
     public function accountCreate()
     {
-        return view('/admin/account/create');
+        return view('admin.account.create');
     }
 
     public function accountStore(Request $req)
@@ -30,13 +30,13 @@ class AdminController extends Controller
         $user = new \App\User;
         $user->fill($req->all());
         $user->save();
-        return redirect('/admin/account/list');
+        return redirect('admin.account.list');
     }
 
     public function accountEdit($id)
     {
         $user = \App\User::findOrFail($id);
-        return view('/admin/account/edit')->with('user', $user);
+        return view('admin.account.edit')->with('user', $user);
     }
 
     public function accountUpdate(Request $req)

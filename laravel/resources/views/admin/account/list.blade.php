@@ -4,24 +4,22 @@
     <div class="row">
         <div class="col-md-12">
             <div class="d-flex bd-highlight mb-3">
-                <div class="p-2 bd-highlight"><a class="btn btn-secondary" href="{{ url('/admin/top') }}">戻る</a></div>
+                <div class="p-2 bd-highlight"><a class="btn btn-secondary" href="{{ route('admin.top') }}">戻る</a></div>
                 <div class="ml-auto p-2 bd-highlight"><a class="btn btn-secondary" href="{{ url('/admin/account/create') }}">新規作成</a></div>
             </div>
             <div class="mb-3">アカウント一覧</div>
                 <table class="table table-sm">
                     <tr>
-                        <th scope="col">id</th>
                         <th scope="col">ユーザーID</th>
                         <th scope="col">氏名</th>
-                        <th scope="col">Eメール</th>
+                        <th scope="col">メールアドレス</th>
                         <th scope="col">作成日</th>
                         <th scope="col" class="text-center">操作</th>
                     </tr>
                     @foreach ($accountLists as $key => $accountList)
                     <tr>
-                        <td>{{$accountList->id}}</td>
+                        <td>{{$accountList->code}}</td>
                         <td>{{$accountList->name}}</td>
-                        <td>{{$accountList->full_name}}</td>
                         <td>{{$accountList->email}}</td>
                         <td>{{$accountList->created_at}}</td>
                         <td class="text-center">
