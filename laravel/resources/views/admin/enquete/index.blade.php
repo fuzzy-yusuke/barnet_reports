@@ -17,7 +17,6 @@
     <form action="#" method="" class="row">
         <div class="col-sm-8 col-sm-offset-2">
             <h4 class="mb-3">アンケート（設問数：{{ count($items) }}）</h4>
-            <!--以下、質問を登録次第実装-->
                 @foreach ($items as $key => $item)
                     @php $key = $key + 1 @endphp
                     @if ($item->form_types_code === '1') {{-- <!-- テキストボックス --> --}}
@@ -45,6 +44,13 @@
                                     @endif
 
                                 @endforeach
+
+
+
+
+
+
+
                             @endfor
                         </div>
                     @elseif ($item->form_types_code === '3') {{-- <!-- チェックボックス --> --}}
@@ -71,9 +77,8 @@
                         <p style="color: red;">質問が存在しません。</p>
                     @endif
                 @endforeach
-                <button type="submit" class="btn btn-success">送信する</button>
-                <a class="btn btn-secondary mr-1" href="{{ route('user.questionList') }}">戻る</a>
-            
+            <button type="button" onclick="history.back()" class="btn btn-secondary">戻る</button>
+            <button type="submit" class="btn btn-success">送信する</button>
         </div>
     </form>
 </div>

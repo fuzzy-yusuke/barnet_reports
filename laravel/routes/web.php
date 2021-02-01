@@ -35,8 +35,8 @@ Route::group(['middleware' => 'auth'], function() {
     
     
     // 管理者
-    Route::get('/admin/top', 'AdminController@top'); //管理者TOP画面
-    Route::get('/admin/account/list', 'AdminController@accountList'); //アカウント一覧
+    Route::get('/admin/top', 'AdminController@top')->name('admin.top'); //管理者TOP画面
+    Route::get('/admin/account/list', 'AdminController@accountList')->name('admin.accountList'); //アカウント一覧
     Route::get('/admin/account/create', 'AdminController@accountCreate'); //アカウント作成
     Route::post('/admin/account/create', 'AdminController@accountStore'); //アカウント作成処理
 
