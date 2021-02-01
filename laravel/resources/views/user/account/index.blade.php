@@ -20,7 +20,7 @@
                     </div>
                     <a class="btn btn-secondary" href="{{ url('/user/top') }}">戻る</a>
                     <a class="btn btn-success" href="{{ action('UserController@accountEdit') }}">編集</a>
-                    <a class="btn btn-warning" href="{{ action('UserController@accountEdit') }}">パスワード変更</a>
+                    <!--<a class="btn btn-warning" href="{{ action('UserController@accountEdit') }}">パスワード変更</a>-->
                 </div>
             </div>
         </div>
