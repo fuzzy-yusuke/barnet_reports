@@ -10,12 +10,12 @@
                     <th scope="col">更新日</th>
                     <th scope="col">タイトル</th>
                 </tr>
-                @foreach ($enquetes as $enquete)
+                @for ($i = 0; $i<=20; $i++)
                 <tr>
-                    <td>{{ $enquete->updated_at}}</td>
-                    <td><a href="{{ route('user.questionIndex') }}">{{$enquete->week_code}}</a></td>
+                    <td>2020/12/01</td>
+                    <td><a href="{{ url('/user/enquete/index') }}">アンケート①</a></td>
                 </tr>
-                @endforeach
+                @endfor
             </table>
         </div>
         <div class="col">
