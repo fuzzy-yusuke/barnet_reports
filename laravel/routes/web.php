@@ -28,8 +28,10 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/user/account/edit', 'UserController@accountEdit')->name('user.accountEdit'); //アカウント情報編集画面
     Route::post('/user/account/edit', 'UserController@accountUpdate')->name('user.accountUpdate');
     Route::get('/user/enquete/list', 'QuestionController@questionList')->name('user.questionList'); //アンケート回答一覧
-    Route::get('/user/enquete/index', 'QuestionController@questionIndex')->name('user.questionIndex'); //アンケート回答画面
-
+    Route::get('/user/enquete/index', 'QuestionController@answerIndex')->name('user.answerIndex'); //アンケート回答画面
+    Route::get('/user/enquete/confirm', 'QuestionController@answerConfirm')->name('user.answerConfirm');//アンケート回答確認画面
+    Route::get('/user/enquete/complete', 'QuestionController@answerComplete')->name('user.answerComplete');//アンケート回答完了画面
+    
     // 管理者
     Route::get('/admin/top', 'AdminController@top'); //管理者TOP画面
     Route::get('/admin/account/list', 'AdminController@accountList'); //アカウント一覧

@@ -77,7 +77,7 @@
                         <p style="color: red;">質問が存在しません。</p>
                     @endif
                 @endforeach
-                <a class="btn btn-secondary mr-1" href="{{ url('/user/enquete/list') }}">戻る</a>
+                <a class="btn btn-secondary mr-1" href="{{ route('user.questionList') }}">戻る</a>
             <button type="submit" class="btn btn-success">送信する</button>
         </div>
     </form>
