@@ -6,14 +6,8 @@ use Illuminate\Http\Request;
 
 class QuestionController extends Controller
 {
-    public function answerList()
-    {   //一般ユーザー側
-        // TODO: where 2 は仮 question_codeが同一の値のレコードを取得
-        $items = \App\Question::where('code', 2)->get();
-        return view('user.enquete.list')->with('items', $items);
-    }
-
-    public function answerIndex()
+        //一般ユーザー側
+        public function answerIndex()
     {
         // TODO: １回分のアンケート（codeが同一値）whereは仮
         $items = \App\Question::where('code', 2)->get();
@@ -45,20 +39,7 @@ class QuestionController extends Controller
     {
         return view('user.enquete.complete');
     }
-    public function answerRead()
-    {
-        // TODO: １回分のアンケート（codeが同一値）whereは仮
-        $items = \App\Question::where('code', 2)->get();
-
-        $itemsArray = $items->toArray();
-
-        // use Illuminate\Support\Facades\DB;
-        // $itemsArray = DB::table('questions')->where('question_group', 2)->get();
-        // dd($itemsArray);
-
-        return view('user.enquete.read')->with('items', $items)->with('itemsArray', $itemsArray);
-
-    }
+    
     //管理者側
     public function questionList()
     {
