@@ -56,10 +56,10 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ url('/user/account/index') }}">
+                                    <a class="dropdown-item" href="{{ route('user.accountIndex') }}">
                                         {{ __('マイアカウント') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ url('/user/enquete/list') }}">
+                                    <a class="dropdown-item" href="{{ route('user.answerIndex') }}">
                                         {{ __('アンケート回答') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"

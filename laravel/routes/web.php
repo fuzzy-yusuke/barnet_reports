@@ -26,7 +26,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/user/top', 'UserController@top')->name('user.top'); //一般ユーザーTOP画面
     Route::get('/user/account/index', 'UserController@accountIndex')->name('user.accountIndex'); //アカウント情報画面
     Route::get('/user/enquete/index', 'QuestionController@answerIndex')->name('user.answerIndex'); //アンケート回答画面
-    Route::get('/user/enquete/confirm', 'QuestionController@answerConfirm')->name('user.answerConfirm');//アンケート回答確認画面
+    Route::post('/user/enquete/confirm', 'QuestionController@answerConfirm')->name('user.answerConfirm');//アンケート回答確認画面
     Route::get('/user/enquete/complete', 'QuestionController@answerComplete')->name('user.answerComplete');//アンケート回答完了画面
     
     

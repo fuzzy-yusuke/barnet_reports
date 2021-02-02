@@ -18,7 +18,7 @@ class QuestionController extends Controller
         // $itemsArray = DB::table('questions')->where('question_group', 2)->get();
         // dd($itemsArray);
 
-        return view('/user/enquete/index')->with('items', $items)->with('itemsArray', $itemsArray);
+        return view('/user.enquete.index')->with('items', $items)->with('itemsArray', $itemsArray);
 
     }
     public function answerConfirm(Request $request)

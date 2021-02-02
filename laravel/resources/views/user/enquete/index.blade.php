@@ -72,7 +72,7 @@
                     @endif
                 @endforeach
                 <button type="submit" class="btn btn-success">送信する</button>
-                <a class="btn btn-secondary mr-1" href="{{ route('user.questionList') }}">戻る</a>
+                <a class="btn btn-secondary mr-1" href="{{ route('user.top') }}">戻る</a>
             
         </div>
     </form>
