@@ -52,6 +52,10 @@ class QuestionController extends Controller
     {
         return view('admin.enquete.create');
     }
+    public function questionStore(Request $request)
+    {
+        
+    }
     public function questionConfirm(Request $request)
     {
         //質問
