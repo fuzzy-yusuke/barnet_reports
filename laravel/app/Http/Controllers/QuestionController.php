@@ -91,7 +91,14 @@ class QuestionController extends Controller
     }
     public function questionEdit()
     {
-        return view('admin.enquete.edit');
+        return view('admin.enquete.edit')->with('Question',\app\Question::all());
+    }
+    public function questionUpdate(Request $request)
+    {
+        $data = $request->all();
+        $user = \app\Question::all();
+        $user->fill($data)->save();
+        return redirect()->route('admin.questionIndex');;
     }
 }
     

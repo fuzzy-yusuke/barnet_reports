@@ -46,6 +46,10 @@ class AdminController extends Controller
         $user->fill($data)->save();
         return redirect()->back();
     }
+    public function accountComplete()
+    {
+        return view('admin.account.complete');
+    }
 
 
 

@@ -23,11 +23,11 @@ class UserController extends Controller
         return view('user.account.edit')->with('user', \Auth::user());
     }
 
-    public function accountUpdate(Request $req)
+    public function accountUpdate(Request $request)
     {
-        $data = $req->all();
+        $data = $request->all();
         $user = \Auth::user();
         $user->fill($data)->save();
-        return redirect(route('user.accountIndex')); // TODO: フラッシュメッセージを出したい
+        return redirect()->route('user.accountIndex'); // TODO: フラッシュメッセージを出したい
     }
 }

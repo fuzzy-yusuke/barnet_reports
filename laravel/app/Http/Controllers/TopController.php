@@ -15,11 +15,11 @@ class TopController extends Controller
         // TODO: まだユーザー登録は画面からしない想定
         // TODO: ロールによって画面遷移先を変えるがルーティングでやった方がいいかもしれない
         if ($user->role_code === 0) {
-            return view(route('user.top'));
+            return view('user.top');
         } elseif ($user->role_code === 1) {
-            return view(route('admin.top'));
+            return view('admin.top');
         } elseif (!$user->role_code) {
-            return view(route('user.top'));
+            return view('user.top');
         } else {
             Auth::logout();
         }

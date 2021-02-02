@@ -18,8 +18,6 @@
                             <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ $user->email }}">
                         </div>
                     </div>
-                    <a class="btn btn-success" href="{{ action('UserController@accountEdit') }}">編集</a>
-                    <!--<a class="btn btn-warning" href="{{ action('UserController@accountEdit') }}">パスワード変更</a>-->
                     <a class="btn btn-secondary" href="{{ route('user.top') }}">戻る</a>
                 </div>
             </div>

@@ -21,10 +21,9 @@
                 @for ($i = 0; $i<=20; $i++)
                 <tr>
                     <td>2020/12/01</td>
-                    <td><a href="{{ url('/user/enquete/index') }}">アンケート①</a></td>
+                    <td><a href="{{ url('/admin/enquete/edit') }}">アンケート①</a></td>
                     <td class="text-center">
                         <div class="btn-group btn-group" role="group" aria-label="button group">
-                            <a class="btn btn-success" href="{{ action('QuestionController@questionEdit') }}">編集</a>
                             <a href="" type="button" class="btn btn-danger ml-1">削除</a>
                         </div>
                     </td>

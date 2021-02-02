@@ -42,12 +42,14 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::get('/admin/account/edit/{id}', 'AdminController@accountEdit'); //アカウント編集
     Route::post('/admin/account/edit/{id}', 'AdminController@accountUpdate'); //アカウント編集
+    Route::get('/admin/account/complete','AdminController@accountComplete')->name('admin.accountComplete');
     Route::get('/admin/enquete/list', 'QuestionController@questionList')->name('admin.questionList'); //アンケート作成一覧
     Route::get('/admin/enquete/create', 'QuestionController@questionCreate')->name('admin.questionCreate'); //アンケート作成画面
     Route::get('/admin/enquete/confirm', 'QuestionController@questionConfirm')->name('admin.questionConfirm');//アンケート作成確認画面
     Route::get('/admin/enquete/complete', 'QuestionController@questionComplete')->name('admin.questionComplete');//アンケート作成完了画面
     Route::get('/admin/enquete/read', 'QuestionController@questionRead')->name('admin.questionRead');//アンケート作成閲覧画面
-    Route::get('/admin/enquete/edit', 'QuestionController@questionEdit')->name('admin.questionEdit');//アンケート作成閲覧画面
+    Route::get('/admin/enquete/edit/{id}', 'QuestionController@questionEdit')->name('admin.questionEdit');//アンケート編集画面
+    Route::post('/admin/enquete/edit/{id}', 'QuestionController@questionUpdate')->name('admin.questionUpdate');//アンケート編集
     Route::get('/admin/result/list', 'QuestionController@resultList')->name('admin.resultList');//アンケート作成閲覧画面
 
 
