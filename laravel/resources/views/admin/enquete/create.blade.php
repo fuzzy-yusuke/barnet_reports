@@ -67,7 +67,7 @@
                             <th scope="col">回答選択肢</th>
                         </tr>
                         {{ Form::open([ 'route' => 'admin.questionCreate']) }}
-                        @csrf
+                        {{ Form::token()}}
                         <div class="form-group">
                             @for ($i = 1; $i<=3; $i++) <tr>
                                 <td>{{$i}}</td>
