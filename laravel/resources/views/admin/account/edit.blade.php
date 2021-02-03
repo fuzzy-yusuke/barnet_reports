@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-header">アカウント情報編集</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ action('UserController@accountUpdate') }}">
+                    <form method="POST" action="{{ action('AdminController@accountUpdate') }}">
                         @csrf
                         <div class="form-group">
                             <label for="name">ユーザー名</label>
@@ -16,7 +16,7 @@
                             <label for="email">Email</label>
                             <div><input id="email" type="text" name="email" class="form-control" value="{{ $user->email }}"></div>
                         </div>
-                        <a class="btn btn-secondary" href="{{ url('/admin/account/list') }}">戻る</a>
+                        <a class="btn btn-secondary" href="{{ route('admin.accountList') }}">戻る</a>
                         <button type="submit" class="btn btn-success">更新</button>
                     </form>
                 </div>

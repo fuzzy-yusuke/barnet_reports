@@ -36,8 +36,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/admin/account/create', 'AdminController@accountCreate'); //アカウント作成
     Route::post('/admin/account/create', 'AdminController@accountStore'); //アカウント作成処理
 
-    Route::get('/admin/account/edit/{id}', 'AdminController@accountEdit'); //アカウント編集
-    Route::post('/admin/account/edit/{id}', 'AdminController@accountUpdate'); //アカウント編集
+    Route::get('/admin/account/edit/{id}', 'AdminController@accountEdit')->name('admin.accountEdit'); //アカウント編集
+    Route::post('/admin/account/edit/{id}', 'AdminController@accountUpdate')->name('admin.accountUpdate'); //アカウント編集
     Route::get('/admin/account/complete','AdminController@accountComplete')->name('admin.accountComplete');
     Route::get('/admin/enquete/list', 'QuestionController@questionList')->name('admin.questionList'); //アンケート作成一覧
     Route::get('/admin/enquete/create', 'QuestionController@questionCreate')->name('admin.questionCreate'); //アンケート作成画面
