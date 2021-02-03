@@ -31,4 +31,16 @@ class Question extends Model
     // リレーション定義
     // ==============================
 
+    public function user_code()
+    {
+        //ユーザーコードはUsersテーブルを参照
+        return $this->belongsTo('App\User');
+    }
+
+    public function form_code()
+    {
+        //フォームコードはform_typesテーブルを参照
+        return $this->belongsTo('App\FormType');
+    }
+
 }
