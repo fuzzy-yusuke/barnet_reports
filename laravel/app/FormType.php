@@ -7,4 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class FormType extends Model
 {
     //
+    public static function selectlist()
+    {
+        $form_codes=FormType::all();
+        $list=array();
+        $list+=array(""=>"選択してください");
+        foreach($form_codes as $form_code){
+            $list+=array($form_code->name=>$form_code->name);
+        }
+        return $list;
+    }
 }

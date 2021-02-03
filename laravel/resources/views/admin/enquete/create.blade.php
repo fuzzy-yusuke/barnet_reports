@@ -72,7 +72,7 @@
                             @for ($i = 1; $i<=3; $i++) <tr>
                                 <td>{{$i}}</td>
                                 <td>{{ Form::text('content',null,['row' => 50]) }}</td>
-                                <td>{{ Form::select('selectEvaluate',['text'=>'テキストボックス','radio'=>'ラジオボタン'] )}}</td>
+                                <td>{{ Form::select('formtypes',App\FormType::selectlist(),old('formtypes'),['class'=>'form-control','id'=>'formtypes','required'=>'required'] )}}</td>
                                 <td>
                                     <div>
                                         {{ Form::checkbox('check_name', 'とても良い', false, ['id' => 'check-id', 'class' => 'form-check-input']) }}
@@ -96,6 +96,9 @@
                                 </tr>
                                 @endfor
                     </table>
+                </div>
+                <div>
+                    {{ Form::text('content',null,['row' => 50]) }}
                 </div>
                 <div class="form-group">
                     {{ Form::textarea('free',null)}}
