@@ -52,12 +52,19 @@ class QuestionController extends Controller
         return view('admin.enquete.list')->with('items', $items);
     }
 
-    public function questionCreate(Request $request)
+    public function questionCreate()
     {
         $question=new question;
-        $form_code=FormType::select('name')->get();
-        return view('admin.enquete.create',compact('form_code'));
+        return view('admin.enquete.create');
     }
+    
+    public function questionConfirm(Request $request)
+    {
+        //質問
+        $question = $request->all();
+        return view('admin.enquete.confirm',['question'=>$question]);
+    }
+
     public function questionStore(Request $request)
     {
         $question=new question;
@@ -70,31 +77,20 @@ class QuestionController extends Controller
         $question->item_content3=request('item_content3');
         $question->item_content4=request('item_content4');
         $question->item_content5=request('item_content5');
-        return redirect()->route('admin.questionList')->with('form_code',$form_code);
+        return redirect()->route('admin.questionComplete')->with('form_code',$form_code);
         
     }
-    public function questionConfirm(Request $request)
-    {
-        //質問
-        $question = $request->content;
-        //回答
-        $answer = $request->answer;
-        //確認画面に表示する値を格納
-        $confirm_data = [
-            'content' => $question,
-            'answer' => $answer
-        ];
-        return view('admin.enquete.confirm')->with('confirm_data',$confirm_data);
-    }
-
+    
     public function questionComplete()
     {
         return view('admin.enquete.complete');
     }
+
     public function questionEdit()
     {
         return view('admin.enquete.edit')->with('Question',Question::all());
     }
+
     public function questionUpdate(Request $request)
     {
         $data = $request->all();

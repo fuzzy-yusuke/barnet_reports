@@ -42,6 +42,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/admin/enquete/list', 'QuestionController@questionList')->name('admin.questionList'); //アンケート作成一覧
     Route::get('/admin/enquete/create', 'QuestionController@questionCreate')->name('admin.questionCreate'); //アンケート作成画面
     Route::get('/admin/enquete/confirm', 'QuestionController@questionConfirm')->name('admin.questionConfirm');//アンケート作成確認画面
+    Route::get('/admin/enquete', 'QuestionController@questionStore')->name('admin.questionStore');//アンケート作成(保存)
     Route::get('/admin/enquete/complete', 'QuestionController@questionComplete')->name('admin.questionComplete');//アンケート作成完了画面
     Route::get('/admin/enquete/read', 'QuestionController@questionRead')->name('admin.questionRead');//アンケート作成閲覧画面
     Route::get('/admin/enquete/edit/{id}', 'QuestionController@questionEdit')->name('admin.questionEdit');//アンケート編集画面
@@ -55,4 +56,4 @@ Auth::routes();
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');

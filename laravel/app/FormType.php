@@ -11,7 +11,7 @@ class FormType extends Model
     {
         $form_codes=FormType::all();
         $list=array();
-        $list+=array(""=>"選択してください");
+        $list+=array(""=>"選択");
         foreach($form_codes as $form_code){
             $list+=array($form_code->name=>$form_code->name);
         }
