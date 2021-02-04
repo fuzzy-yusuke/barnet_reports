@@ -1,17 +1,48 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <form method="POST" action="{{ route('admin.questionComplete') }}">
-        {{ Form::token()}}
-        <div class="col-sm-8 col-sm-offset-2">
-            <h4 class="mb-3">この内容でアンケートを作成しますか？</h4>
-                <label>アンケート名</label>
-                {{ $question['code']}}
-                {{ Form::hidden('code',$question['code'])}}
+    {{ Form::open(['method'=>'POST','route' => 'admin.questionStore']) }}
+    {{ Form::token() }}
+    <div class="col-sm-8 col-sm-offset-2">
+        <h4 class="mb-3">この内容でアンケートを作成しますか？</h4>
+        <label>アンケート名</label>
+        {{ $question['code']}}
+        {{ Form::hidden('code',$question['code']) }}
 
-            <button type="submit" class="btn btn-success">はい</button>
-            <a class="btn btn-secondary mr-1" href="{{ route('user.answerIndex') }}">いいえ</a>
-        </div>
-    </form>
+        <table class="table table-striped">
+            <tr>
+                <th scope="col">No.</th>
+                <th scope="col">質問内容</th>
+                <th scope="col">回答形式</th>
+                <th scope="col">必須</th>
+                <th scope="col">回答選択肢</th>
+            </tr>
+            <div class="form-group">
+                <tr>
+                    @for ($i = 1; $i<=3; $i++) <td>{{$i}}</td>
+                        <td>{{ $question['content'] }}</td>
+                        <td>{{ $form['name'] }}</td>
+                        <!--<td>{{ 必須 }}</td>-->
+                        <td>
+                            <div>{{ $question['item_content1'] }}</div>
+                            <div>{{ $question['item_content2'] }}</div>
+                            <div>{{ $question['item_content3'] }}</div>
+                            <div>@if(! $question[item_content4] = ""){
+                                {{ $question['item_content4'] }}
+                                }
+                            </div>
+                            <div>@if(! $question[item_content5] = ""){
+                                {{ $question['item_content5'] }}
+                                }
+                            </div>
+                        </td>
+                </tr>
+                @endfor
+                </table>
+                <button type="submit" class="btn btn-success">はい</button>
+                <a class="btn btn-secondary mr-1" href="{{ route('user.answerIndex') }}">いいえ</a>
+            </div>
+            {{ Form::close() }}
+    </div>
 </div>
 @endsection

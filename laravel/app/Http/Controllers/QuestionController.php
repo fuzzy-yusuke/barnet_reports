@@ -10,8 +10,8 @@ use App\FormType;
 
 class QuestionController extends Controller
 {
-        //一般ユーザー側
-        public function answerIndex()
+    //一般ユーザー側
+    public function answerIndex()
     {
         // TODO: １回分のアンケート（codeが同一値）whereは仮
         $items = Question::where('code', 2)->get();
@@ -23,7 +23,6 @@ class QuestionController extends Controller
         // dd($itemsArray);
 
         return view('/user.enquete.index')->with('items', $items)->with('itemsArray', $itemsArray);
-
     }
     public function answerConfirm(Request $request)
     {
@@ -36,14 +35,14 @@ class QuestionController extends Controller
             'content' => $question,
             'answer' => $answer
         ];
-        return view('user.enquete.confirm')->with('confirm_data',$confirm_data);
+        return view('user.enquete.confirm')->with('confirm_data', $confirm_data);
     }
 
     public function answerComplete()
     {
         return view('user.enquete.complete');
     }
-    
+
     //管理者側
     public function questionList()
     {
@@ -54,33 +53,34 @@ class QuestionController extends Controller
 
     public function questionCreate()
     {
-        $question=new question;
+        $question = new question;
         return view('admin.enquete.create');
     }
-    
+
     public function questionConfirm(Request $request)
     {
         //質問
         $question = $request->all();
-        return view('admin.enquete.confirm',['question'=>$question]);
+        $form = FormType::where('code', $question['form_code'])->get();
+        return view('admin.enquete.confirm', ['question' => $question]);
     }
 
     public function questionStore(Request $request)
     {
-        $question=new question;
-        $form_code=FormType::id();
+        $question = new question;
+        $form_code = FormType::id();
         //作成したアンケートをDBに保存
-        $question->content=request('content');
-        $question->form_code=$form_code->id;
-        $question->item_content1=request('item_content1');
-        $question->item_content2=request('item_content2');
-        $question->item_content3=request('item_content3');
-        $question->item_content4=request('item_content4');
-        $question->item_content5=request('item_content5');
-        return redirect()->route('admin.questionComplete')->with('form_code',$form_code);
-        
+        $question->content = request('content');
+        $question->form_code = $form_code->id;
+        $question->item_content1 = request('item_content1');
+        $question->item_content2 = request('item_content2');
+        $question->item_content3 = request('item_content3');
+        $question->item_content4 = request('item_content4');
+        $question->item_content5 = request('item_content5');
+        $question->save();
+        return redirect()->route('admin.questionComplete')->with('form_code', $form_code);
     }
-    
+
     public function questionComplete()
     {
         return view('admin.enquete.complete');
@@ -88,7 +88,7 @@ class QuestionController extends Controller
 
     public function questionEdit()
     {
-        return view('admin.enquete.edit')->with('Question',Question::all());
+        return view('admin.enquete.edit')->with('Question', Question::all());
     }
 
     public function questionUpdate(Request $request)
@@ -99,4 +99,3 @@ class QuestionController extends Controller
         return redirect()->route('admin.questionIndex');
     }
 }
-    
