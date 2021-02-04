@@ -6,8 +6,8 @@
     <div class="col-sm-8 col-sm-offset-2">
         <h4 class="mb-3">この内容でアンケートを作成しますか？</h4>
         <label>アンケート名</label>
-        {{ $question['code']}}
-        {{ Form::hidden('code',$question['code']) }}
+        {{ $question ?? '' ?? 'code'}}
+        {{ Form::hidden('code',$question ?? ''['code']) }}
 
         <table class="table table-striped">
             <tr>
@@ -18,31 +18,33 @@
                 <th scope="col">回答選択肢</th>
             </tr>
             <div class="form-group">
-                <tr>
-                    @for ($i = 1; $i<=3; $i++) <td>{{$i}}</td>
-                        <td>{{ $question['content'] }}</td>
-                        <td>{{ $form['name'] }}</td>
-                        <!--<td>{{ 必須 }}</td>-->
-                        <td>
-                            <div>{{ $question['item_content1'] }}</div>
-                            <div>{{ $question['item_content2'] }}</div>
-                            <div>{{ $question['item_content3'] }}</div>
-                            <div>@if(! $question[item_content4] = ""){
-                                {{ $question['item_content4'] }}
-                                }
-                            </div>
-                            <div>@if(! $question[item_content5] = ""){
-                                {{ $question['item_content5'] }}
-                                }
-                            </div>
-                        </td>
-                </tr>
-                @endfor
-                </table>
-                <button type="submit" class="btn btn-success">はい</button>
-                <a class="btn btn-secondary mr-1" href="{{ route('user.answerIndex') }}">いいえ</a>
-            </div>
-            {{ Form::close() }}
+                @for ($i = 1; $i<=3; $i++)<tr>
+                    <td>{{$i}}</td>
+                    <td>{{ $question ?? ''['content'] }}</td>
+                    <td>{{ $form['name'] }}</td>
+                    <!--<td>{{ 必須 }}</td>-->
+                    <td>
+                        <div>{{ $question ?? ''['item_content1'] }}</div>
+                        <div>{{ $question ?? ''['item_content2'] }}</div>
+                        <div>{{ $question ?? ''['item_content3'] }}</div>
+                        <div>@if(! $question ?? ''[item_content4] = ""){
+                            {{ $question ?? ''['item_content4'] }}
+                            }
+                            @endif
+                        </div>
+                        <div>@if(! $question ?? ''[item_content5] = ""){
+                            {{ $question ?? ''['item_content5'] }}
+                            }
+                            @endif
+                        </div>
+                    </td>
+                    </tr>
+                    @endfor
+        </table>
+        <button type="submit" class="btn btn-success">はい</button>
+        <a class="btn btn-secondary mr-1" href="{{ route('user.questionCreate') }}">いいえ</a>
     </div>
+    {{ Form::close() }}
+</div>
 </div>
 @endsection

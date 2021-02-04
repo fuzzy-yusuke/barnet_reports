@@ -59,8 +59,8 @@
         <div class="card" style="width: 150%;">
             <div class="card-header">アンケート新規作成</div>
             <div class="card-body">
-                <h1>{{ Form::text('content',null,['placeholder' => 'アンケート名']) }}</h1>
-                <table class="table table-striped" >
+                <h1>{{ Form::text('code',null,['placeholder' => 'アンケート名']) }}</h1>
+                <table class="table table-striped">
                     <tr>
                         <th scope="col">No.</th>
                         <th scope="col">質問内容</th>
@@ -76,27 +76,22 @@
                             <td>{{ Form::select('formtypes',App\FormType::selectlist(),old('formtypes'),['class'=>'form-control','id'=>'formtypes','required'=>'required'] )}}
                             </td>
                             <td>
-                                {{ Form::checkbox('check_name', '必須', false, ['id' => 'check-id', 'class' => 'form-check-input']) }}
-                                {{ Form::label('check-id', '必須', ['class' => 'form-check-label']) }}
+                                {{ Form::checkbox('must[]', '必須', false, ['id' => 'check-id', 'class' => 'form-check-input']) }}
+                                {{ Form::label('must', '必須', ['class' => 'form-check-label']) }}
                             </td>
                             <td>
                                 <div>
-                                    {{ Form::checkbox('check_name', 'item_content1', false, ['id' => 'check-id', 'class' => 'form-check-input']) }}
                                     {{ Form::text('item_content1',null,['placeholder' => '回答欄1','disabled'=>'disabled']) }}
                                 </div>
                                 <div>
-                                    {{ Form::checkbox('check_name', 'item_content2', false, ['id' => 'check-id', 'class' => 'form-check-input']) }}
                                     {{ Form::text('item_content2',null,['placeholder' => '回答欄2','disabled'=>'disabled']) }}
                                 </div>
                                 <div>
-                                    {{ Form::checkbox('check_name', 'item_content3', false, ['id' => 'check-id', 'class' => 'form-check-input']) }}
                                     {{ Form::text('item_content3',null,['placeholder' => '回答欄3','disabled'=>'disabled']) }}
                                 </div>
                                 <div>
-                                    {{ Form::checkbox('check_name', 'item_content4', false, ['id' => 'check-id', 'class' => 'form-check-input']) }}
                                     {{ Form::text('item_content4',null,['placeholder' => '回答欄4','disabled'=>'disabled']) }}
                                 </div>
-                                {{ Form::checkbox('check_name', 'item_content5', false, ['id' => 'check-id', 'class' => 'form-check-input']) }}
                                 {{ Form::text('item_content5',null,['placeholder' => '回答欄5','disabled'=>'disabled']) }}
                             </td>
                             </tr>
