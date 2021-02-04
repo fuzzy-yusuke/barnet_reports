@@ -104,6 +104,7 @@
             </div>
         </div>
         {{ Form::button('作成する',['type'=>"submit",'class'=>'btn btn-success'] )}}
+        {{ Form::button('下書き',['type'=>"button",'class' => 'btn btn-info'])}}
         <a class="btn btn-secondary" href="{{ route('admin.questionList') }}">戻る</a>
         {{ Form::close()}}
         </form>
