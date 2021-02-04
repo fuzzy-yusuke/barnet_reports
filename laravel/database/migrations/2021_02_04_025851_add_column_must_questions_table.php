@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnQuestionsTable extends Migration
+class AddColumnMustQuestionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,8 @@ class AddColumnQuestionsTable extends Migration
     public function up()
     {
         Schema::table('questions', function (Blueprint $table) {
-            //質問を束ねるコード「week_code」カラムを追加
-            $table->string('week_code');
+            //必須フラグを格納するカラムを追加
+            $table->string('must');
         });
     }
 
