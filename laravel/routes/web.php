@@ -28,8 +28,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/user/enquete/index', 'QuestionController@answerIndex')->name('user.answerIndex'); //アンケート回答画面
     Route::post('/user/enquete/confirm', 'QuestionController@answerConfirm')->name('user.answerConfirm');//アンケート回答確認画面
     Route::get('/user/enquete/complete', 'QuestionController@answerComplete')->name('user.answerComplete');//アンケート回答完了画面
-    
-    
+
+
     // 管理者
     Route::get('/admin/top', 'AdminController@top')->name('admin.top'); //管理者TOP画面
     Route::get('/admin/account/list', 'AdminController@accountList')->name('admin.accountList'); //アカウント一覧
@@ -52,7 +52,7 @@ Route::group(['middleware' => 'auth'], function() {
 
 
 });
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Auth::routes();
 
