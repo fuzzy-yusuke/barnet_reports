@@ -5,7 +5,12 @@
         <div class="col-md-12">
             <div class="d-flex bd-highlight mb-3">
                 <div class="p-2 bd-highlight"><a class="btn btn-secondary" href="{{ route('admin.top') }}">戻る</a></div>
-                <div class="ml-auto p-2 bd-highlight"><a class="btn btn-secondary" href="{{ url('/admin/account/create') }}">新規作成</a></div>
+                @if (Route::has('register'))
+                <div class="ml-auto p-2 bd-highlight">
+                    <a class="btn btn-secondary" href="{{ route('register') }}">新規作成</a>
+                </div>
+                @endif
+
             </div>
             <div class="mb-3">アカウント一覧</div>
                 <table class="table table-sm">
@@ -24,7 +29,7 @@
                         <td>{{$accountList->created_at}}</td>
                         <td class="text-center">
                             <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-                            <a href="{{ action('AdminController@accountEdit', $accountList->id) }}" type="button" class="btn btn-info">参照</a>
+                            <a href="{{ action('AdminController@accountEdit', $accountList->id) }}" type="button" class="btn btn-info">編集</a>
                             <a href="" type="button" class="btn btn-danger ml-1">削除</a>
                             </div>
                         </td>

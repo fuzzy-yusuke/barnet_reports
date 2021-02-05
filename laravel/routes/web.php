@@ -33,8 +33,8 @@ Route::group(['middleware' => 'auth'], function() {
     // 管理者
     Route::get('/admin/top', 'AdminController@top')->name('admin.top'); //管理者TOP画面
     Route::get('/admin/account/list', 'AdminController@accountList')->name('admin.accountList'); //アカウント一覧
-    Route::get('/admin/account/create', 'AdminController@accountCreate'); //アカウント作成
-    Route::post('/admin/account/create', 'AdminController@accountStore'); //アカウント作成処理
+    /*Route::get('/admin/account/create', 'AdminController@accountCreate'); //アカウント作成
+    Route::post('/admin/account/create', 'AdminController@accountStore'); //アカウント作成処理 */
 
     Route::get('/admin/account/edit/{id}', 'AdminController@accountEdit')->name('admin.accountEdit'); //アカウント編集
     Route::post('/admin/account/edit/{id}', 'AdminController@accountUpdate')->name('admin.accountUpdate'); //アカウント編集
@@ -52,7 +52,7 @@ Route::group(['middleware' => 'auth'], function() {
 
 
 });
-Auth::routes(['register' => false]);
+Auth::routes();
 
 Auth::routes();
 

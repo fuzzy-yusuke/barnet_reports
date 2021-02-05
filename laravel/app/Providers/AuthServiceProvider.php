@@ -25,6 +25,9 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        //管理者権限の設定
+        /*Gate::define('admin', function ($user) {
+            return ($user->flag == 1);
+        });*/
     }
 }
