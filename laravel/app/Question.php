@@ -21,7 +21,9 @@ class Question extends Model
         'item_content3',
         'item_content4',
         'item_content5',
-        'content'
+        'content',
+        'must',
+        'status'
     ];
 
     // timestampの自動更新を利用する
@@ -42,5 +44,8 @@ class Question extends Model
         //フォームコードはform_typesテーブルを参照
         return $this->belongsTo('App\FormType');
     }
+
+    const published = 1;
+    const draft =2;
 
 }
