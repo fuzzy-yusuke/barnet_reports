@@ -39,6 +39,15 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('所属') }}</label>
+
+                            <div class="col-md-6">
+                               {{-- <select class="form-control" id="role" required="required" name="role">
+                                    <option>{{ $list[] }}</option>
+
+                                </select> --}}
+
+                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('メールアドレス') }}</label>
 
                             <div class="col-md-6">
