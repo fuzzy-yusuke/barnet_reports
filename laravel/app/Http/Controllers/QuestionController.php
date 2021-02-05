@@ -62,23 +62,14 @@ class QuestionController extends Controller
         return view('admin.enquete.create');
     }
 
-    public function questionConfirm(Request $request)
-    {
-        //アンケート新規作成確認
-        //質問
-        $question = $request->all();
-        //$form = FormType::where('code', $question['form_code'])->get();
-        return view('admin.enquete.confirm') ->with($question);
-    }
-
     public function questionStore(Request $request)
     {
-        //作成したアンケートをDBに保存        
-        dd($request);
+        //作成したアンケートをDBに保存
+        //dd($request);
         $question = new question;
         $question->code = $request('code');
         $form_code = FormType::id();
-        $question->content = $request('content');
+        $question->content = $request('contents[]');
         $question->form_code = $form_code->id;
         $question->must = $request('must');
         $question->item_content1 = $request('item_content1');
@@ -89,6 +80,23 @@ class QuestionController extends Controller
         $question->save();
         return redirect()->route('admin.questionComplete')->with('form_code', $form_code);
     }
+
+    public function questionConfirm(Request $request)
+    {
+        //アンケート新規作成確認
+        //質問
+        //dd($request);
+        $questions = $request->all();
+        // dd($questions);
+
+        /*$form = FormType::where('code', $question['form_types'])->get();
+        dd($question,$form);*/
+
+        // dd($questions);
+
+        return view('admin.enquete.confirm')->with('questions', $questions);
+    }
+
 
     public function questionComplete()
     {

@@ -1,58 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<style>
-    header {
-        margin-top: 30px;
-        color: #43A047;
-    }
-
-    hr {
-        border-width: 3px;
-        border-color: #43A047;
-    }
-
-    h1 {
-        font-size: 25px;
-        font-weight: bold;
-        margin: 0;
-        text-align: center;
-    }
-
-    .align-light {
-        text-align: right;
-    }
-
-    .form-group {
-        margin-bottom: 35px;
-    }
-
-    footer p {
-        text-align: center;
-    }
-
-    input:required {
-        background: #ffcdd2;
-    }
-
-    input[type="email"]:invalid {
-        background: #ffcdd2;
-    }
-
-    input:valid {
-        background: transparent;
-    }
-
-    input:focus {
-        background: #DCEDC8;
-    }
-
-    .form-text {
-        display: block;
-        margin-top: 1.25rem;
-        height: 50px;
-    }
-</style>
-
 <div class="container">
     {{ Form::open([ 'route' => 'admin.questionConfirm']) }}
     <div class="col-sm-8 col-sm-offset-2">
@@ -72,8 +19,8 @@
                     <div class="form-group">
                         @for ($i = 1; $i<=3; $i++) <tr>
                             <td>{{$i}}</td>
-                            <td>{{ Form::text('content',null,['row' => 50,'placeholder' => '調子はいかがですか']) }}</td>
-                            <td>{{ Form::select('formtypes',App\FormType::selectlist(),old('formtypes'),['class'=>'form-control','id'=>'formtypes','required'=>'required'] )}}
+                            <td>{{ Form::text('content[]',null,['row' => 50,'placeholder' => '調子はいかがですか']) }}</td>
+                            <td>{{ Form::select('formtypes[]',App\FormType::selectlist(),old('formtypes'),['class'=>'form-control','id'=>'formtypes','required'=>'required'] )}}
                             </td>
                             <td>
                                 {{ Form::checkbox('must[]', '必須', false, ['id' => 'check-id', 'class' => 'form-check-input']) }}
@@ -95,12 +42,12 @@
                                 {{ Form::text('item_content5',null,['placeholder' => '回答欄5','disabled'=>'disabled']) }}
                             </td>
                             </tr>
-                            @endfor
+                        @endfor
                 </table>
             </div>
             <div>
                 {{ Form::label('content','自由記入欄のタイトル：')}}
-                {{ Form::text('content',null,['row' => 50]) }}
+                {{ Form::text('content[]',null,['row' => 50]) }}
             </div>
         </div>
         {{ Form::button('作成する',['type'=>"submit",'class'=>'btn btn-success'] )}}

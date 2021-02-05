@@ -4,10 +4,11 @@
     {{ Form::open(['method'=>'POST','route' => 'admin.questionStore']) }}
     {{ Form::token() }}
     <div class="col-sm-8 col-sm-offset-2">
-        <h4 class="mb-3">この内容でアンケートを作成しますか？</h4>
-        <label>アンケート名</label>
+        <h3 class="mb-3">この内容でアンケートを作成しますか？</h4>
+        <h4>アンケート名:
         {{ $questions['code']}}
         {{ Form::hidden('code',$questions['code']) }}
+        </h4>
 
         <table class="table table-striped">
             <tr>
@@ -20,9 +21,9 @@
             <div class="form-group">
                 @foreach ($questions as $question)<tr>
                     <td>{{1}}</td>
-                    <td>{{ $question['content'][0] }}</td>
-                    <td>{{ $question['formtypes'][0] }}</td>
-                    <td>{{ $question->content }}</td>
+                    <td>{{ $questions['content'][0] }}</td>
+                    <td>{{ $questions['formtypes'][0] }}</td>
+
                     {{--<td>{{ 必須 }}</td>--}}
                     {{--<td>
                         <div>{{ $question['item_content1'] }}</div>
