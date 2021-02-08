@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class FormType extends Model
 {
-    //
+    //質問形式テーブルから取得させる
     public static function selectlist()
     {
         $form_codes=FormType::all();

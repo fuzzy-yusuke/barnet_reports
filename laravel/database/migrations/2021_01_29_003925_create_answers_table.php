@@ -17,7 +17,7 @@ class CreateAnswersTable extends Migration
             $table->bigIncrements('id');
             $table->string('question_code',30);
             $table->string('user_code',3);
-            $table->string('answer');
+            $table->string('answer')->nullable();
             $table->timestamps();
         });
     }

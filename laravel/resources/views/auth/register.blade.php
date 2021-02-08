@@ -8,6 +8,10 @@
                 <div class="card-header">{{ __('新規登録') }}</div>
 
                 <div class="card-body">
+                    @foreach( $roles as $role )
+                        <p>{{ $role->name }}</p>
+                    @endforeach
+                    {{--
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -40,12 +44,15 @@
 
                         <div class="form-group row">
                             <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('所属') }}</label>
-
+                        </div>
                             <div class="col-md-6">
-                               {{-- <select class="form-control" id="role" required="required" name="role">
-                                    <option>{{ $list[] }}</option>
-
-                                </select> --}}
+                               <select class="form-control @error('role') is-invalid @enderror" id="role" required="required" name="role">
+                                    <option value="">選択してください</option>
+                                    @foreach ($roles as $role)
+                                        <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
 
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('メールアドレス') }}</label>
@@ -91,6 +98,7 @@
                             </div>
                         </div>
                     </form>
+                    --}}
                 </div>
             </div>
         </div>

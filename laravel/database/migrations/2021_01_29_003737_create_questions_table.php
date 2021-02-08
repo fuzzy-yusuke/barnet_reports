@@ -15,16 +15,16 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('user_code',3);
-            $table->string('code',30);
-            $table->string('form_code',30);
-            $table->string('content');
-            $table->integer('selectable_item');
-            $table->string('item_content1');
-            $table->string('item_content2');
-            $table->string('item_content3');
-            $table->string('item_content4');
-            $table->string('item_content5');
+            $table->string('user_code',3)->nullable();
+            $table->string('code',30)->unique();
+            $table->string('form_code',30)->nullable();
+            $table->string('content')->nullable();
+            $table->integer('selectable_item')->nullable();
+            $table->string('item_content1')->nullable();
+            $table->string('item_content2')->nullable();
+            $table->string('item_content3')->nullable();
+            $table->string('item_content4')->nullable();
+            $table->string('item_content5')->nullable();
             $table->timestamps();
         });
     }

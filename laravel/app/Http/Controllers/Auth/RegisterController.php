@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Role;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -71,5 +72,17 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'role_name' => $data['role_name'],
         ]);
+    }
+
+    public function selectable_roles()
+    {
+        //rolesテーブルから値を取得
+        // $roles=Role::all();
+        $roles = Role::get();
+        // dd($roles);
+
+        return view('auth/register',compact('roles'))
+        ->with('id','')
+        ->with('name','');
     }
 }
