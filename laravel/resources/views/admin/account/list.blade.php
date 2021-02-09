@@ -17,6 +17,7 @@
                     <tr>
                         <th scope="col">ユーザーID</th>
                         <th scope="col">氏名</th>
+                        <th scope="col">所属</th>
                         <th scope="col">メールアドレス</th>
                         <th scope="col">作成日</th>
                         <th scope="col" class="text-center">操作</th>
@@ -25,6 +26,7 @@
                     <tr>
                         <td>{{$accountList->code}}</td>
                         <td>{{$accountList->name}}</td>
+                        <td>{{$accountList->role_name}}</td>
                         <td>{{$accountList->email}}</td>
                         <td>{{$accountList->created_at}}</td>
                         <td class="text-center">
