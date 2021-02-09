@@ -70,11 +70,11 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'role_name' => $data['role_name'],
+            'role_name' => $data['role_name']
         ]);
     }
 
-    public function selectable_roles()
+    public function showRegistrationForm()
     {
         //rolesテーブルから値を取得
         // $roles=Role::all();
