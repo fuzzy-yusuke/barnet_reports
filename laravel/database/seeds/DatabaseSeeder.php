@@ -13,5 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         //MstSeederを呼び出す
         $this->call(MstSeeder::class);
+        //RoleSeederを呼び出す
+        $this->call(RoleSeeder::class);
     }
 }
