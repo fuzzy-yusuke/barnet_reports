@@ -4,8 +4,16 @@ $(function(){
         let result=$('#formtypes1').val();
         if(result =="1"){
             $('#item_content1').prop('disabled',true);
+            $('#item_content2').prop('disabled',true);
+            $('#item_content3').prop('disabled',true);
+            $('#item_content4').prop('disabled',true);
+            $('#item_content5').prop('disabled',true);
         }else{
             $('#item_content1').prop('disabled',false);
+            $('#item_content2').prop('disabled',false);
+            $('#item_content3').prop('disabled',false);
+            $('#item_content4').prop('disabled',false);
+            $('#item_content5').prop('disabled',false);
         }
     })
 })
