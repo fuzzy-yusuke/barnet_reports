@@ -65,7 +65,7 @@
                                     </td>
                                     <td>
                                         <div>
-                                            {{ Form::text('item_content1', null, ['placeholder' => '回答欄1', 'disabled' => 'disabled']) }}
+                                            <input class="form-control" id="item_content1" placeholder="回答欄1" name="item_content1" type="text" disabled="disabled">
                                         </div>
                                         <div>
                                             {{ Form::text('item_content2', null, ['placeholder' => '回答欄2', 'disabled' => 'disabled']) }}
