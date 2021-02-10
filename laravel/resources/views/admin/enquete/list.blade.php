@@ -18,17 +18,17 @@
                     <th scope="col">タイトル</th>
                     <th scope="col" class="text-center">操作</th>
                 </tr>
-                @for ($i = 0; $i<=20; $i++)
+                @foreach ($questionLists as $key => $questionList)
                 <tr>
-                    <td>2020/12/01</td>
-                    <td><a href="{{ url('/admin/enquete/edit') }}">アンケート①</a></td>
+                    <td>{{$questionList->updated_at}}</td>
+                    <td><a href="{{ route('admin.questionEdit') }}">{{$questionList->code}}</a></td>
                     <td class="text-center">
                         <div class="btn-group btn-group" role="group" aria-label="button group">
                             <a href="" type="button" class="btn btn-danger ml-1">削除</a>
                         </div>
                     </td>
                 </tr>
-                @endfor
+                @endforeach
             </table>
         </div>
         <div class="col">
