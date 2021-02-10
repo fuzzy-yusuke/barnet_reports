@@ -51,15 +51,18 @@ class QuestionController extends Controller
     {
         //作成したアンケートの一覧
         // TODO: where 2 は仮 question_codeが同一の値のレコードを取得
-        $items = Question::where('code', 2)->get();
-        return view('admin.enquete.list')->with('items', $items);
+        $questionLists = Question::orderby('updated_at', 'desc')->get();
+        return view('admin.enquete.list')->with('questionLists', $questionLists);
     }
 
     public function questionCreate()
     {
         //アンケート新規作成
         $question = new question;
-        return view('admin.enquete.create');
+        $formtypes=FormType::get();
+        return view('admin.enquete.create',compact('formtypes'))
+        ->with('id','')
+        ->with('name','');
     }
 
     public function questionStore(Request $request)
