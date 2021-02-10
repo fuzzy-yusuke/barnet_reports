@@ -48,7 +48,7 @@
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('新規登録') }}</a>
                                 </li>
                             @endif
-         
+
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -83,5 +83,26 @@
             @yield('content')
         </main>
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js">
+/*
+        function changefujii($formname){
+            var element;
+            if (document.getElementById($formname){
+                id = document.getElementById($formname).value;
+                if($formname == "テキストボックス"){
+                element = document.getElementById("item_content1");
+                element = document.getElementById("item_content2");
+                element = document.getElementById("item_content3");
+                element.disabled = true;
+                }else{
+                    element.disabled = false;
+                }
+            }
+
+        }
+        console.log(onchange);
+        */
+
+    </script>
 </body>
 </html>
