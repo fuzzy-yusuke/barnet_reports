@@ -10,8 +10,13 @@ use App\Role;
 
 class AdminController extends Controller
 {
-    public function top()
+    public function __construct()
     {
+        $this->middleware('admin');
+    }
+
+
+    public function top(){
         return view('admin.top');
     }
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 // models
 use App\Role;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {   //一般ユーザーのコントローラ
@@ -17,7 +18,7 @@ class UserController extends Controller
     public function accountIndex()
     {
         // 現在認証されているユーザー情報を取得しビューに渡す
-        return view('user.account.index')->with('user', \Auth::user());
+        return view('user.account.index')->with('user', Auth::user());
     }
 
     public function registUser(){
