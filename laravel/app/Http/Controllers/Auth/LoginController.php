@@ -32,8 +32,7 @@ class LoginController extends Controller
     protected $redirectTo = RouteServiceProvider::HOME;
     protected function authenticated(\Illuminate\Http\Request $request, $user)
     {
-        $roleCh=$this->guard()->user()->role_name;
-        if($roleCh==='管理者'){
+        if($user='1'){
             return view('admin.top');
         }else{
             return view('user.top');
