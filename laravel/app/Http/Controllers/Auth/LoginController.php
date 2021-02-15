@@ -30,9 +30,16 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
-    protected function authenticated(\Illuminate\Http\Request $request, $user)
+
+    public function check()
     {
-        if($user='1'){
+        $roleCh=\App\User::whereHas('Role',function($q){
+            $q->where('flag',1);
+        })->get();
+    }
+    protected function authenticated(\Illuminate\Http\Request $request, User $user,$roleCh)
+    {
+        if($roleCh==='1'){
             return view('admin.top');
         }else{
             return view('user.top');

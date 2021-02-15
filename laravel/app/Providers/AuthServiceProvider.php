@@ -27,10 +27,7 @@ class AuthServiceProvider extends ServiceProvider
 
         //管理者のみアクセスを許可
         Gate::define('admin',function($user){
-            return $user
-            ->with('roles')
-            ->where('flag','=','1')
-            ->get();
+            return ($user->role->flag==='1');
         });
     }
 }
