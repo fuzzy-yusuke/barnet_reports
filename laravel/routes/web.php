@@ -20,8 +20,8 @@ use Illuminate\Support\Facades\Auth;
 // Route::get('/home', 'HomeController@index')->name('home');
 
 // 管理者
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin']], function () {
 
+Route::group(['middleware' => ['auth', 'verified']], function () {
     //管理者TOP画面
     Route::get('/admin/top', 'AdminController@top')->name('admin.top');
 
@@ -50,12 +50,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin']], funct
     Route::get('/admin/enquete/edit/{id}', 'QuestionController@questionEdit')->name('admin.questionEdit');
     Route::post('/admin/enquete/edit/{id}', 'QuestionController@questionUpdate')->name('admin.questionUpdate');
     Route::get('/admin/result/list', 'QuestionController@resultList')->name('admin.resultList'); //アンケート作成閲覧
-});
-// 管理者とユーザーを権限によって振り分け
-//Route::get('/', 'TopController@index');
 
-// 一般ユーザー
-Route::group(['middleware' => ['auth','verified']], function () {
+
+    // 一般ユーザー
+
     //一般ユーザーTOP画面
     Route::get('/user/top', 'UserController@top')->name('user.top');
 
