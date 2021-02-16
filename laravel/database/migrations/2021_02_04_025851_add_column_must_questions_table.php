@@ -15,9 +15,9 @@ class AddColumnMustQuestionsTable extends Migration
     {
         Schema::table('questions', function (Blueprint $table) {
             //必須フラグを格納するカラムを追加
-            $table->string('must')->nullable();
+            $table->boolean('must')->nullable();
             //公開か下書きかを確認する
-            $table->string('status');
+            $table->boolean('status');
         });
     }
 

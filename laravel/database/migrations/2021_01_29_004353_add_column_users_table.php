@@ -15,7 +15,7 @@ class AddColumnUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('code',3)->nullable();
-            $table->string('role_name',30)->nullable();
+            $table->integer('role_code')->nullable();
             // 論理削除フラグ
             $table->softDeletes();
         });
