@@ -21,7 +21,7 @@ class Admin
             return redirect()->route('login');
         }
 
-        //権限のチェック
+        /*//権限のチェック
         if(auth()->user()->role_name === '管理者'){
             $this->auth=true;
         }else{
@@ -34,6 +34,6 @@ class Admin
         }
 
         //それ以外は一般ユーザー用のトップページへ
-        return view('user.top');
+        return view('user.top');*/
     }
 }
