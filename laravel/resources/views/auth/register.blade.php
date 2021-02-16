@@ -38,13 +38,13 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="role_name" class="col-md-4 col-form-label text-md-right">{{ __('所属') }}</label>
+                            <label for="role_id" class="col-md-4 col-form-label text-md-right">{{ __('所属') }}</label>
                         </div>
                             <div class="col-md-6">
-                               <select class="form-control @error('role_name') is-invalid @enderror" id="role_name" required="required" name="role_name">
+                               <select class="form-control @error('role_id') is-invalid @enderror" id="role_id" required="required" name="role_id">
                                     <option value="">選択してください</option>
                                     @foreach ($roles as $role)
-                                        <option>{{ $role->name }}</option>
+                                        <option value="{{$role->id}}">{{ $role->name }}</option>
                                     @endforeach
                                 </select>
                             </div>

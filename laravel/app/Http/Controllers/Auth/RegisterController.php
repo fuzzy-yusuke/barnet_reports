@@ -31,7 +31,7 @@ class RegisterController extends Controller
      * @var string
      */
     //protected $redirectTo = RouteServiceProvider::HOME;
-    protected $redirectTo = ('admin.top');
+    protected $redirectTo = ('admin.account.list');
     /**
      * Create a new controller instance.
      *
@@ -70,7 +70,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'role_name' => $data['role_name']
+            'role_id' => $data['role_id'],
         ]);
     }
 

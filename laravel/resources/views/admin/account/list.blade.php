@@ -26,7 +26,7 @@
                     <tr>
                         <td>{{$accountList->code}}</td>
                         <td>{{$accountList->name}}</td>
-                        <td>{{$accountList->role_name}}</td>
+                        <td>{{$accountList->role->name}}</td>
                         <td>{{$accountList->email}}</td>
                         <td>{{$accountList->created_at}}</td>
                         <td class="text-center">
