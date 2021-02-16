@@ -8,11 +8,11 @@ class Role extends Model
 {
     //所属テーブルから取得させる
     protected $fillable = [
-        'id','name'
+        'name','flag'
     ];
 
     public function users()
     {
-        return $this->hasMany('App\User');
+        return $this->hasMany(User::class);
     }
 }

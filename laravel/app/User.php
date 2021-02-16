@@ -39,6 +39,6 @@ class User extends Authenticatable
 
     public function role()
     {   //所属はRolesテーブルを参照する
-        return $this->belongsTo(Role::class,"id")->withDefault();
+        return $this->belongsTo(Role::class)->withDefault();
     }
 }
