@@ -32,14 +32,12 @@ class LoginController extends Controller
     protected $redirectTo = RouteServiceProvider::HOME;
     protected function authenticated(\Illuminate\Http\Request $request, $user)
     {
-        $tests=User::all();
+        $tests = User::find($user->id)->role->flag;
         //dd($tests);
-        if($user==='1'){
+        if ($tests == '1') {
             return view('admin.top');
-        }elseif($user==='0'){
+        } else {
             return view('user.top');
-        }else{
-            return view('logout');
         }
     }
 
@@ -52,6 +50,5 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-
 }
 //select * from users inner join roles on users.role_name = roles.name
