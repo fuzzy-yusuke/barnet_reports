@@ -13,11 +13,20 @@ class MstSeeder extends Seeder
     public function run()
     {
         //テスト用データ
-        App\User::create([
-            'name'=>'バーネット',
-            'email'=>'test@barnet.ne.jp',
-            'password'=>Hash::make('sapporo0420'),
-            'code'=>'020',
-        ]);
+        App\User::create(
+            [
+                'name' => '管理者',
+                'email' => 'test@test.com',
+                'password' => Hash::make('testtest1'),
+                'code' => '001',
+                'role_code' => '1',
+            ],
+            [
+                'name' => '一般ユーザー',
+                'email' => 'test@barnet.ne.jp',
+                'password' => Hash::make('sapporo0420'),
+                'code' => '002',
+            ],
+        );
     }
 }

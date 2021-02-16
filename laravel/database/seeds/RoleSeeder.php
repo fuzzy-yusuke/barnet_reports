@@ -12,9 +12,15 @@ class RoleSeeder extends Seeder
     public function run()
     {
         //テスト用データ
-        App\Role::create([
-            'name'=>'開発部',
-            'flag'=>'2',
-        ]);
+        App\Role::create(
+            [
+                'name' => '営業部',
+                'flag' => '1',
+            ],
+            [
+                'name' => '開発部',
+                'flag' => '0',
+            ],
+        );
     }
 }
