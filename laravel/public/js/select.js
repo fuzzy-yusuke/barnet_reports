@@ -1,11 +1,12 @@
 /*$(function () {
-    for(var i=1;i<3;i++){
-        $('#formtypes[i]').on('change',function(){
-            let result=$('#formtypes[i]').val;
+    for(var i=1;i<4;i++){
+        console.log(i);
+        $('#formtypes'+i).on('change',function(){
+            let result=$('#formtypes'+i).val;
             if(result=='1'){
-                $('.item_content[i])').attr('disabled',true);
+                $('.item_content'+i).attr('disabled',true);
             }else{
-                $('.item_content[i]').attr('disabled',false);
+                $('.item_content'+i).attr('disabled',false);
             }
         })
     }
