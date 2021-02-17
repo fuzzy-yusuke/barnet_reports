@@ -74,7 +74,7 @@ class QuestionController extends Controller
         $form_code = FormType::id();
         $question->content = $request('contents[]');
         $question->form_code = $form_code->id;
-        $question->must = $request('must');
+        $question->must = $request->has('must');
         $question->item_content1 = $request('item_content1');
         $question->item_content2 = $request('item_content2');
         $question->item_content3 = $request('item_content3');

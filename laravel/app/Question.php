@@ -26,6 +26,11 @@ class Question extends Model
         'status'
     ];
 
+    //mustカラムをbool値としてキャストさせる
+    protected $casts = [
+        'must' => 'boolean',
+    ];
+
     // timestampの自動更新を利用する
     public $timestamps = true;
 
@@ -46,6 +51,5 @@ class Question extends Model
     }
 
     const published = 1;
-    const draft =2;
-
+    const draft = 2;
 }
