@@ -77,7 +77,18 @@
                         <input type="text" name="content[]" row=50>
                     </div>
                 </div>
-                <input value="作成する" type="submit" class="btn btn-success">
+                <input value="作成する" type="submit" class="btn btn-success" onclick="return confirm('この内容で送信しますか')">
+                <!--<script>
+                        var subbtn=document.getElementById('subbtn');
+                        subbtn.addEventListener('click',function(){
+                            window.confirm('この内容で送信しますか。');
+                            if(subbtn==true){
+                                return true;
+                            }else{
+                                return false;
+                            }
+                        })
+                    </script>-->
                 <input value="下書き" class="btn btn-info w-auto mt-2">
                 <a class="btn btn-secondary" href="{{ route('admin.questionList') }}">戻る</a>
         </form>
