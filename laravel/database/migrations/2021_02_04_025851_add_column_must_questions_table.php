@@ -17,7 +17,7 @@ class AddColumnMustQuestionsTable extends Migration
             //必須フラグを格納するカラムを追加
             $table->boolean('must')->nullable();
             //公開か下書きかを確認する
-            $table->boolean('status');
+            $table->boolean('status')->nullable();
         });
     }
 

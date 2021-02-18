@@ -15,5 +15,9 @@ class DatabaseSeeder extends Seeder
         $this->call(MstSeeder::class);
         //RoleSeederを呼び出す
         $this->call(RoleSeeder::class);
+        //QuestionSeederを呼び出す
+        $this->call(QuestionSeeder::class);
+        //FormTypeSeederを呼び出す
+        $this->call(FormTypeSeeder::class);
     }
 }
