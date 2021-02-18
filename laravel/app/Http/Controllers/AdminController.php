@@ -16,7 +16,7 @@ class AdminController extends Controller
 
     public function accountList()
     {
-        $accountLists = User::orderBy('id', 'desc')->paginate(10);
+        $accountLists = User::orderBy('id', 'asc')->paginate(10);
         return view('admin.account.list')->with('accountLists', $accountLists);
     }
 

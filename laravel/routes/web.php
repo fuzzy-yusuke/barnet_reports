@@ -39,8 +39,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/admin/enquete/list', 'QuestionController@questionList')->name('admin.questionList');
     //アンケート新規作成
     Route::get('/admin/enquete/create', 'QuestionController@questionCreate')->name('admin.questionCreate');
-    //アンケート作成確認
-    Route::post('/admin/enquete/confirm', 'QuestionController@questionConfirm')->name('admin.questionConfirm');
+    //アンケート保存
     Route::post('/admin/enquete', 'QuestionController@questionStore')->name('admin.questionStore');
     //アンケート作成完了画面
     Route::get('/admin/enquete/complete', 'QuestionController@questionComplete')->name('admin.questionComplete');
