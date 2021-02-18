@@ -29,6 +29,7 @@ class Question extends Model
     //mustカラムをbool値としてキャストさせる
     protected $casts = [
         'must' => 'boolean',
+        'status'=>'boolean',
     ];
 
     // timestampの自動更新を利用する

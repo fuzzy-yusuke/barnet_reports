@@ -3,7 +3,7 @@
 
     <script src="{{ asset('js/select.js') }}" defer></script>
     <div class="container">
-        <form method="POST" action="{{ route('admin.questionConfirm') }}">
+        <form method="POST" action="{{ route('admin.questionStore') }}">
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="card" style="width: 150%;">
                     <div class="card-header">アンケート新規作成</div>

@@ -79,35 +79,21 @@ class QuestionController extends Controller
         //作成したアンケートをDBに保存
         //dd($request);
         $question = new question;
-        $question->code = $request('code');
-        $form_code = FormType::id();
-        $question->content = $request('contents[]');
-        $question->form_code = $form_code->id;
+        $question->code = request('code');
+        //$form_code = FormType::find($request);
+        $question->content = request('contents[]');
+        $question->form_code = request('form_code');
         $question->must = $request->has('must');
-        $question->item_content1 = $request('item_content1');
-        $question->item_content2 = $request('item_content2');
-        $question->item_content3 = $request('item_content3');
-        $question->item_content4 = $request('item_content4');
-        $question->item_content5 = $request('item_content5');
+        $question->item_content1 = request('item_content1');
+        $question->item_content2 = request('item_content2');
+        $question->item_content3 = request('item_content3');
+        $question->item_content4 = request('item_content4');
+        $question->item_content5 = request('item_content5');
         $question->save();
-        return redirect()->route('admin.questionComplete')->with('form_code', $form_code);
+        return redirect()->route('admin.questionComplete');
     }
 
-    public function questionConfirm(Request $request)
-    {
-        //アンケート新規作成確認
-        //質問
-        //dd($request);
-        $questions = $request->all();
-        // dd($questions);
 
-        /*$form = FormType::where('code', $question['form_types'])->get();
-        dd($question,$form);*/
-
-        // dd($questions);
-
-        return view('admin.enquete.confirm')->with('questions', $questions);
-    }
 
     public function questionEdit()
     {
