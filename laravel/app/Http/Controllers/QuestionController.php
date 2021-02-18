@@ -50,19 +50,28 @@ class QuestionController extends Controller
     public function questionList()
     {
         //作成したアンケートの一覧
-        // TODO: where 2 は仮 question_codeが同一の値のレコードを取得
-        $questionLists = Question::orderby('updated_at', 'desc')->get();
+        $questionLists = Question::groupby('code')
+            ->orderby('updated_at', 'desc')->get();
         return view('admin.enquete.list')->with('questionLists', $questionLists);
+    }
+
+    public function questionDraftList()
+    {
+        //作成したアンケートの下書きを一覧で出す
+        $draftLists = Question::groupby('code')
+            ->where('status','1')
+            ->orderby('updated_at', 'desc')->get();
+        return view('admin.enquete.draftlist')->with('draftLists', $draftLists);
     }
 
     public function questionCreate()
     {
         //アンケート新規作成
         $question = new question;
-        $formtypes=FormType::get();
-        return view('admin.enquete.create',compact('formtypes'))
-        ->with('id','')
-        ->with('name','');
+        $formtypes = FormType::get();
+        return view('admin.enquete.create', compact('formtypes'))
+            ->with('id', '')
+            ->with('name', '');
     }
 
     public function questionStore(Request $request)
@@ -98,12 +107,6 @@ class QuestionController extends Controller
         // dd($questions);
 
         return view('admin.enquete.confirm')->with('questions', $questions);
-    }
-
-
-    public function questionComplete()
-    {
-        return view('admin.enquete.complete');
     }
 
     public function questionEdit()
