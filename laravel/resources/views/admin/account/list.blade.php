@@ -22,7 +22,7 @@
                         <th scope="col">作成日</th>
                         <th scope="col" class="text-center">操作</th>
                     </tr>
-                    @foreach ($accountLists as $key => $accountList)
+                    @foreach ($accountLists as $accountList)
                     <tr>
                         <td>{{$accountList->code}}</td>
                         <td>{{$accountList->name}}</td>
