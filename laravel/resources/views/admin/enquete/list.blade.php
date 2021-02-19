@@ -22,7 +22,10 @@
                         <tr>
                             <td>@php{{ array_slice($updateTime,$key,1) }}@endphp</td>
                             <td>{{-- <a href="{{ route('admin.questionEdit') }}"> --}}
-                                @php{{ array_keys($questionList) }}@endphp</a></td>
+                                @php
+                                 //dd($questionList);
+                                @endphp
+                                {{ $questionList->code }}</td>
                             <td class="text-center">
                                 <div class="btn-group btn-group" role="group" aria-label="button group">
                                     <a href="" type="button" class="btn btn-danger ml-1">削除</a>

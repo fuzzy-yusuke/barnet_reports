@@ -54,7 +54,6 @@ class QuestionController extends Controller
         // dd(count($questionLists));
         // dd($questionLists);
         $updateTime = \DB::select("select updated_at from questions where updated_at=(select max(updated_at) from questions as qs where questions.code=qs.code)");
-
         //dd($updateTime);
         //$results=array_merge_recursive($questionLists,$updateTime);
        //dd($results);
