@@ -50,16 +50,22 @@ class QuestionController extends Controller
     public function questionList()
     {
         //作成したアンケートの一覧
-        $questionLists = Question::groupby('code')
-            ->orderby('updated_at', 'desc')->get();
-        return view('admin.enquete.list')->with('questionLists', $questionLists);
+        $questionLists = Question::orderby('updated_at', 'desc')->get()->groupby('code');
+        // dd(count($questionLists));
+        // dd($questionLists);
+        $updateTime = \DB::select("select updated_at from questions where updated_at=(select max(updated_at) from questions as qs where questions.code=qs.code)");
+
+        //dd($updateTime);
+        //$results=array_merge_recursive($questionLists,$updateTime);
+       //dd($results);
+        return view('admin.enquete.list')->with('questionLists', $questionLists, 'updateTime', $updateTime);
     }
 
     public function questionDraftList()
     {
         //作成したアンケートの下書きを一覧で出す
         $draftLists = Question::groupby('code')
-            ->where('status','1')
+            ->where('status', '1')
             ->orderby('updated_at', 'desc')->get();
         return view('admin.enquete.draftlist')->with('draftLists', $draftLists);
     }
