@@ -48,8 +48,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     //アンケート作成閲覧
     Route::get('/admin/enquete/read', 'QuestionController@questionRead')->name('admin.questionRead');
     //アンケート編集
-    Route::get('/admin/enquete/edit/{id}', 'QuestionController@questionEdit')->name('admin.questionEdit');
-    Route::post('/admin/enquete/edit/{id}', 'QuestionController@questionUpdate')->name('admin.questionUpdate');
+    Route::get('/admin/enquete/edit/{code}', 'QuestionController@questionEdit')->name('admin.questionEdit');
+    Route::post('/admin/enquete/edit/{code}', 'QuestionController@questionUpdate')->name('admin.questionUpdate');
     Route::get('/admin/result/list', 'QuestionController@resultList')->name('admin.resultList'); //アンケート作成閲覧
 
 
